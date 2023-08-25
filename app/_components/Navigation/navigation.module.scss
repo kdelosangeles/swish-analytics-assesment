@@ -1,0 +1,52 @@
+@import "../../_styles/variables.scss";
+
+.nav {
+    @include content-padding;
+    display: grid;
+    align-content: flex-start;
+    background-color: $white;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        padding-bottom: 64px;
+
+        img {
+            width: 40px;
+            margin-right: 12px;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+
+    .navlinks {
+        padding-bottom: 32px;
+        .sectionLabel {
+            font-size: 12px;
+            font-weight: 700;
+
+            padding-bottom: 16px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: all 50ms ease-in-out;
+
+            &:hover {
+                background-color: $black;
+                color: $white;
+            }
+
+            svg {
+                margin-right: 8px;
+            }
+        }
+    }
+}

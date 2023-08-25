@@ -1,0 +1,18 @@
+// colors
+$black: #000000;
+$white: #ffffff;
+$text-grey: #787878;
+$background-grey: #f1f1f1;
+
+// media queries
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1200px;
+
+// shared styles
+
+@mixin content-padding {
+    width: 100%;
+    padding: 32px 24px;
+}

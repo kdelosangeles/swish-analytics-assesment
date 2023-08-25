@@ -1,0 +1,40 @@
+/* simple reset css */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove margin and padding on all elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* responsive image support */
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &:visited {
+        color: black;
+    }
+}
+
+/* remove default list styles  */
+ul {
+    list-style: none;
+}

@@ -1,0 +1,9 @@
+@import "./_styles/variables.scss";
+
+.main {
+    min-height: 100vh;
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: auto 1fr;
+    background-color: $background-grey;
+}
