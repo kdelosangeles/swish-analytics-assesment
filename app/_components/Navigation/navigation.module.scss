@@ -1,11 +1,10 @@
 @import "../../_styles/variables.scss";
 
 .nav {
-    @include content-padding;
+    @include content-wrapper;
     grid-area: navigation;
     display: grid;
     align-content: flex-start;
-    background-color: $white;
 
     .logo {
         display: flex;

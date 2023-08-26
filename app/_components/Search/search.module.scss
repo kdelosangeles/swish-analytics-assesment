@@ -1,11 +1,11 @@
 @import "../../_styles/variables.scss";
 
 .search {
-    @include content-padding;
+    @include content-wrapper;
     grid-area: search;
-    background-color: $white;
     display: flex;
     align-items: center;
+    border-radius: 0 0 0 4px;
 
     h1 {
         font-size: 24px;

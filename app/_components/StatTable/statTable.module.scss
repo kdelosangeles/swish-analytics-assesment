@@ -1,0 +1,29 @@
+@import "../../_styles/variables.scss";
+
+.statTable {
+    @include content-wrapper;
+    grid-area: statTable;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border-radius: 4px 0 0 0;
+
+    .dataHeader {
+        @include table-grid;
+        background-color: $background-grey;
+
+        .sortLabel {
+            font-size: 16px;
+            font-weight: 800;
+        }
+    }
+
+    .stats {
+        padding: 16px 0;
+        overflow: auto;
+
+        .statLineItem {
+            @include table-grid;
+        }
+    }
+}
