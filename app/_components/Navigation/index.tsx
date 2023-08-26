@@ -6,9 +6,10 @@ import { FiGrid } from "react-icons/fi";
 import Link from "next/link";
 import Filters from "../Filters";
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
     return (
         <nav className={styles.nav}>
+            <Link href='/' className={styles.logo}>
                 <Image src='/images/logo.png' alt='swish ball logo' width={100} height={100} />
                 <p>Swish Analytics</p>
             </Link>

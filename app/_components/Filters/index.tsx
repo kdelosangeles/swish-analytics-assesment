@@ -4,7 +4,7 @@ import styles from "./filters.module.scss";
 import classnames from "classnames";
 import { FiChevronDown } from "react-icons/fi";
 
-const Filters = () => {
+const Filters: React.FC = () => {
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 

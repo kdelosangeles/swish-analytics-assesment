@@ -2,6 +2,7 @@
 
 .nav {
     @include content-padding;
+    grid-area: navigation;
     display: grid;
     align-content: flex-start;
     background-color: $white;
