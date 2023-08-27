@@ -9,12 +9,15 @@ import { Stat } from "./_types/types";
 
 interface HomePageContextProps {
     stats: Stat[];
+    search: string;
+    setSearch: (search: string) => void;
 }
 
-export const HomePageContext = createContext<HomePageContextProps>({ stats: [] });
+export const HomePageContext = createContext<HomePageContextProps>({ stats: [], search: "", setSearch: () => {} });
 
 const Home = () => {
     const [stats, setStats] = useState([]);
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         // Simulating client side data fetching
@@ -32,7 +35,7 @@ const Home = () => {
     }, []);
 
     return (
-        <HomePageContext.Provider value={{ stats }}>
+        <HomePageContext.Provider value={{ stats, search, setSearch }}>
             <main className={styles.main}>
                 <Navigation />
                 <Search />

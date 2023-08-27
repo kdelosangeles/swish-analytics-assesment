@@ -3,7 +3,9 @@
 .search {
     @include content-wrapper;
     grid-area: search;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
     align-items: center;
     border-radius: 0 0 0 4px;
 
@@ -16,10 +18,28 @@
         height: 40px;
         width: 100%;
         padding-left: 16px;
-        border-radius: 4px;
+        border-radius: 4px 0 0 4px;
         border: none;
         background-color: $background-grey;
         font-weight: 500;
         font-size: 16px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        border: none;
+        font-size: 16px;
+        background-color: $background-grey;
+        height: 40px;
+        width: 40px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+
+        &:hover {
+            color: $text-grey;
+        }
     }
 }

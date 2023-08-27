@@ -17,8 +17,8 @@ const StatLineItem = (props: Props) => {
             <td>{position}</td>
             <td>{statType}</td>
             <td>{line}</td>
-            <td>{highLine}</td>
             <td>{lowLine}</td>
+            <td>{highLine}</td>
             <td>{marketSuspended ? "suspended" : "active"}</td>
         </tr>
     );

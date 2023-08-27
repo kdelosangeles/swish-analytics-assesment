@@ -11,8 +11,8 @@ const DataHeader = () => {
                 <th>Position</th>
                 <th>Stat</th>
                 <th>Optimal</th>
-                <th>High</th>
                 <th>Low</th>
+                <th>High</th>
                 <th>Status</th>
             </tr>
         </thead>

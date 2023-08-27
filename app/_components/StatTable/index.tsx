@@ -8,13 +8,19 @@ import styles from "./statTable.module.scss";
 import { HomePageContext } from "@/app/page";
 
 const StatTable = () => {
-    const { stats } = useContext(HomePageContext);
+    const { stats, search } = useContext(HomePageContext);
+
+    const filteredStats = useMemo(() => {
+        return stats.filter((stat: Stat) => {
+            return stat.playerName.toLowerCase().includes(search.toLowerCase()) || stat.teamNickname.toLowerCase().includes(search.toLowerCase());
+        });
+    }, [stats, search]);
 
     const renderStats = useMemo(() => {
-        return stats.map((stat: Stat, index: number) => {
+        return filteredStats.map((stat: Stat, index: number) => {
             return <StatLineItem key={index} {...stat} />;
         });
-    }, [stats]);
+    }, [filteredStats]);
 
     return (
         <table className={styles.statTable}>
