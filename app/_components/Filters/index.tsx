@@ -1,10 +1,11 @@
 "use client";
+
 import { useState } from "react";
 import styles from "./filters.module.scss";
 import classnames from "classnames";
 import { FiChevronDown } from "react-icons/fi";
 
-const Filters: React.FC = () => {
+const Filters = () => {
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 

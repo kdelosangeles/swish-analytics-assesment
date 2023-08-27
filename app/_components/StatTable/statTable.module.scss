@@ -24,6 +24,7 @@
 
         .statLineItem {
             @include table-grid;
+            font-size: 14px;
         }
     }
 }

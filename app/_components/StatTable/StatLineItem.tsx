@@ -1,15 +1,25 @@
+"use client";
+import { Stat } from "@/app/_types/types";
 import styles from "./statTable.module.scss";
 
-const StatLineItem: React.FC = () => {
+interface Props extends Stat {
+    highLine?: number;
+    lowLine?: number;
+}
+
+const StatLineItem = (props: Props) => {
+    const { playerName, teamNickname, position, statType, line, marketSuspended, highLine, lowLine } = props;
+
     return (
         <tr className={styles.statLineItem}>
-            <td>Russell Westbrook</td>
-            <td>Lakers</td>
-            <td>PG</td>
-            <td>7</td>
-            <td>9</td>
-            <td>3</td>
-            <td>Active</td>
+            <td>{playerName}</td>
+            <td>{teamNickname}</td>
+            <td>{position}</td>
+            <td>{statType}</td>
+            <td>{line}</td>
+            <td>{highLine}</td>
+            <td>{lowLine}</td>
+            <td>{marketSuspended ? "suspended" : "active"}</td>
         </tr>
     );
 };

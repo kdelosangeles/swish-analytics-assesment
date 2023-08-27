@@ -21,7 +21,7 @@ $large-desktop: 1200px;
 @mixin table-grid {
     display: grid;
     grid-template-columns: 2fr repeat(7, 1fr);
+    grid-column-gap: 16px;
     justify-items: flex-start;
     padding: 12px 16px;
 }
-// TODO: naming conventions for colors

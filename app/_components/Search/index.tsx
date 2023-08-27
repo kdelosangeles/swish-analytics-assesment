@@ -1,6 +1,8 @@
+"use client";
+
 import styles from "./search.module.scss";
 
-const Search: React.FC = () => {
+const Search = () => {
     return (
         <header className={styles.search}>
             <h1>Dashboard</h1>

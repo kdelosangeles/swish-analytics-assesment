@@ -6,7 +6,7 @@ import { FiGrid } from "react-icons/fi";
 import Link from "next/link";
 import Filters from "../Filters";
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
     return (
         <nav className={styles.nav}>
             <Link href='/' className={styles.logo}>
