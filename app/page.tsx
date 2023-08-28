@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useEffect, useState } from "react";
+import { NextPage } from "next";
 import Navigation from "./_components/Navigation";
 import Search from "./_components/Search";
 import StatTable from "./_components/StatTable";
@@ -33,7 +34,7 @@ export const HomePageContext = createContext<HomePageContextProps>({
     setMarketSuspendedFilter: () => {},
 });
 
-const Home = () => {
+export default function Home() {
     const [stats, setStats] = useState([]);
     const [searchFilter, setSearchFilter] = useState("");
     const [statFilters, setStatFilters] = useState([]);
@@ -77,6 +78,4 @@ const Home = () => {
             </main>
         </HomePageContext.Provider>
     );
-};
-
-export default Home;
+}
