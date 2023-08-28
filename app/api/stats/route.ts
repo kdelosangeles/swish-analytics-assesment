@@ -3,37 +3,52 @@ import propsData from "../../_data/props.json";
 import alternateData from "../../_data/alternates.json";
 import { Stat } from "@/app/_types/types";
 
-interface AlternateDataMapping {
-    [key: string]: number[];
-}
+const highProbabilityThreshold = 0.4;
 
 export const GET = async () => {
-    const alternateDataMapping: AlternateDataMapping = {};
-
-    // Create a mapping of the alternate data so that we dont have to iterate over it multiple times
-    alternateData.forEach((alt) => {
-        // key using the playerId and statTypeId
-        const key = `${alt.playerId}-${alt.statTypeId}`;
-        //   create a mapping for the key if it doesnt exist
-        if (!alternateDataMapping[key]) {
-            alternateDataMapping[key] = [];
-        }
-        //   otherwise push the line to the mapping
-        alternateDataMapping[key].push(alt.line);
-    });
-
-    //  map over the props data and add the high and low values
     const stats = propsData.map((stat: Stat) => {
-        const key = `${stat.playerId}-${stat.statTypeId}`;
-        const alternates = alternateDataMapping[key] || [];
-        const hasValues = alternates.length > 0;
+        // return an array of all alternates that match the stat
+        const matchingAlternates = alternateData
+            .filter((a) => a.statType === stat.statType && a.playerId === stat.playerId)
+            .map((b) => ({
+                line: b.line,
+                probabilities: [b.underOdds, b.overOdds, b.pushOdds],
+            }));
 
-        const highLine = hasValues ? Math.max(...alternates) : null;
-        const lowLine = hasValues ? Math.min(...alternates) : null;
+        const allLines = [...new Set(matchingAlternates.map((a) => a.line))];
+        // checks that the optimal line exists in alternates
+        const hasOptimalLine = allLines.includes(stat.line);
 
-        // create new object with the high and low values
-        return { ...stat, highLine, lowLine };
+        // gets the probabilities for the optimal line
+        const optimalProbabilities = hasOptimalLine ? matchingAlternates.find((a) => a.line === stat.line).probabilities : null;
+        // checks that the optimal line has a probability greater than the threshold
+        const highProbability = optimalProbabilities ? optimalProbabilities.some((a) => a > highProbabilityThreshold) : false;
+
+        // high and low lines for the stat
+        const highLine = Math.max(...allLines);
+        const lowLine = Math.min(...allLines);
+
+        // runs 3 checks to determine if the market should be suspended
+        const suspensionCheck = () => {
+            if (stat.marketSuspended || !hasOptimalLine || (matchingAlternates.length > 0 && !highProbability)) {
+                return 1;
+            }
+            return 0;
+        };
+
+        // a value to compare the initial suspension status to the current suspension status
+        const initialSuspensionStatus = stat.marketSuspended;
+
+        return {
+            ...stat,
+            highLine,
+            lowLine,
+            marketSuspended: suspensionCheck(),
+            initialSuspensionStatus,
+        };
     });
 
-    return NextResponse.json([...stats]);
+    return NextResponse.json(stats);
 };
+
+export default GET;
