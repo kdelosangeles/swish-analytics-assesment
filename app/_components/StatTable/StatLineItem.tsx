@@ -56,5 +56,3 @@ const StatLineItem = (props: Props) => {
 };
 
 export default StatLineItem;
-
-// TODO: add team logo if time

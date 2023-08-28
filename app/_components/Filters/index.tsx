@@ -14,8 +14,6 @@ const Filters = () => {
         const { name } = event.target;
         const parsedName = parseInt(name);
 
-        // ignore ts error
-
         setMarketSuspendedFilter((prevFilters: number[]) => {
             // checks if the filter is already in the array and removes it if it is
             return prevFilters.includes(parsedName) ? prevFilters.filter((filter) => filter !== parsedName) : [...prevFilters, parsedName];
@@ -71,7 +69,6 @@ const Filters = () => {
             </h5>
             {positions}
             {statTypes}
-
             <div className={styles.filterList}>
                 <h6>Market Status</h6>
                 <ul>

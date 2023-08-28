@@ -59,5 +59,3 @@ const StatTable = () => {
 };
 
 export default StatTable;
-
-// TODO: use a better key value

@@ -52,5 +52,3 @@ export const GET = async () => {
 
     return NextResponse.json(stats);
 };
-
-export default GET;
