@@ -38,6 +38,7 @@ export const GET = async () => {
 
         // a value to compare the initial suspension status to the current suspension status
         const initialSuspensionStatus = stat.marketSuspended;
+        const shouldBeSuspended = suspensionCheck();
 
         return {
             ...stat,
@@ -45,6 +46,7 @@ export const GET = async () => {
             lowLine,
             marketSuspended: suspensionCheck(),
             initialSuspensionStatus,
+            shouldBeSuspended,
         };
     });
 

@@ -44,8 +44,9 @@ const StatTable = () => {
     }, [stats, searchFilter, statFilters, positionFilters, marketSuspendedFilter]);
 
     const renderStats = useMemo(() => {
-        return filteredStats.map((stat: Stat, index: number) => {
-            return <StatLineItem key={index} {...stat} />;
+        return filteredStats.map((stat: Stat) => {
+            const key = `${stat.playerId}-${stat.statTypeId}`;
+            return <StatLineItem key={key} {...stat} />;
         });
     }, [filteredStats]);
 

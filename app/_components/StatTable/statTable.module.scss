@@ -26,6 +26,36 @@
             @include table-grid;
             font-size: 14px;
             text-transform: capitalize;
+
+            .suspensionContainer {
+                position: relative;
+                .suspensionAlert {
+                    position: absolute;
+                    left: -16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .suspensionMenu {
+                    position: relative;
+                    width: 120px;
+                    border: none;
+                    font-size: 14px;
+                    cursor: pointer;
+                    width: 120px;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    background: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8"><path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+                        no-repeat;
+                    background-size: 10px;
+                    background-position: right center;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
         }
     }
 }

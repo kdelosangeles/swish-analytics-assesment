@@ -9,6 +9,7 @@ import { Stat } from "./_types/types";
 
 interface HomePageContextProps {
     stats: Stat[];
+    setStats: any;
     searchFilter: string;
     setSearchFilter: (search: string) => void;
     statFilters: string[];
@@ -21,6 +22,7 @@ interface HomePageContextProps {
 
 export const HomePageContext = createContext<HomePageContextProps>({
     stats: [],
+    setStats: () => {},
     searchFilter: "",
     setSearchFilter: () => {},
     statFilters: [],
@@ -40,6 +42,7 @@ const Home = () => {
 
     const contextProps = {
         stats,
+        setStats,
         searchFilter,
         setSearchFilter,
         statFilters,
