@@ -9,15 +9,46 @@ import { Stat } from "./_types/types";
 
 interface HomePageContextProps {
     stats: Stat[];
-    search: string;
-    setSearch: (search: string) => void;
+    searchFilter: string;
+    setSearchFilter: (search: string) => void;
+    statFilters: string[];
+    setStatFilters: (stats: string[]) => void;
+    positionFilters: string[];
+    setPositionFilters: (positions: string[]) => void;
+    marketSuspendedFilter: number[];
+    setMarketSuspendedFilter: any;
 }
 
-export const HomePageContext = createContext<HomePageContextProps>({ stats: [], search: "", setSearch: () => {} });
+export const HomePageContext = createContext<HomePageContextProps>({
+    stats: [],
+    searchFilter: "",
+    setSearchFilter: () => {},
+    statFilters: [],
+    setStatFilters: () => {},
+    positionFilters: [],
+    setPositionFilters: () => {},
+    marketSuspendedFilter: [],
+    setMarketSuspendedFilter: () => {},
+});
 
 const Home = () => {
     const [stats, setStats] = useState([]);
-    const [search, setSearch] = useState("");
+    const [searchFilter, setSearchFilter] = useState("");
+    const [statFilters, setStatFilters] = useState([]);
+    const [positionFilters, setPositionFilters] = useState([]);
+    const [marketSuspendedFilter, setMarketSuspendedFilter] = useState([]);
+
+    const contextProps = {
+        stats,
+        searchFilter,
+        setSearchFilter,
+        statFilters,
+        setStatFilters,
+        positionFilters,
+        setPositionFilters,
+        marketSuspendedFilter,
+        setMarketSuspendedFilter,
+    };
 
     useEffect(() => {
         // Simulating client side data fetching
@@ -35,7 +66,7 @@ const Home = () => {
     }, []);
 
     return (
-        <HomePageContext.Provider value={{ stats, search, setSearch }}>
+        <HomePageContext.Provider value={contextProps}>
             <main className={styles.main}>
                 <Navigation />
                 <Search />

@@ -1,0 +1,45 @@
+.filters {
+  height: 38px;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+.filters.open {
+  height: 100%;
+}
+.filters.open .sectionLabel svg {
+  transform: rotate(180deg);
+}
+.filters .sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 24px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+.filters .sectionLabel svg {
+  transition: transform 0.3s ease-in-out;
+}
+.filters .filterList {
+  padding-left: 24px;
+  padding-bottom: 24px;
+}
+.filters .filterList h6 {
+  font-size: 12px;
+  padding-bottom: 12px;
+}
+.filters .filterList li {
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.filters .filterList li label {
+  padding-left: 8px;
+}
+.filters .filterList li input,
+.filters .filterList li label {
+  cursor: pointer;
+}/*# sourceMappingURL=filters.module.css.map */
