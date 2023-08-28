@@ -8,6 +8,12 @@ This is an overview of the Swish Analytics FE Coding Assessment. Below you’ll 
 
 ## Getting Started
 
+Install Node Packages
+
+```bash
+npm install
+```
+
 First, run the development server:
 
 ```bash
