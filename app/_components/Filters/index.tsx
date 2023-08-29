@@ -4,11 +4,11 @@ import React, { useCallback, useContext, useMemo, useState } from "react";
 import styles from "./filters.module.scss";
 import classnames from "classnames";
 import { FiChevronDown } from "react-icons/fi";
-import { HomePageContext } from "@/app/page";
+import { HomePageContext } from "@/app/_context/HomePageContext";
 
 const Filters = () => {
     const [open, setOpen] = useState(true);
-    const { stats, setStatFilters, setPositionFilters, marketSuspendedFilter, setMarketSuspendedFilter } = useContext(HomePageContext);
+    const { stats, setStatFilters, setPositionFilters, setMarketSuspendedFilter } = useContext(HomePageContext);
 
     const marketSuspendedHandler = (event) => {
         const { name } = event.target;

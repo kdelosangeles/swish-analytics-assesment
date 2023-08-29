@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import styles from "./search.module.scss";
-import { HomePageContext } from "@/app/page";
+import { HomePageContext } from "@/app/_context/HomePageContext";
 import { FiX } from "react-icons/fi";
 
 const Search = () => {

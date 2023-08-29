@@ -2,7 +2,7 @@
 import { useContext, useMemo } from "react";
 import { Stat } from "@/app/_types/types";
 import styles from "./statTable.module.scss";
-import { HomePageContext } from "@/app/page";
+import { HomePageContext } from "@/app/_context/HomePageContext";
 import { FiInfo } from "react-icons/fi";
 
 interface Props extends Stat {

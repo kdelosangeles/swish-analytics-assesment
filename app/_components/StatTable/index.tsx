@@ -5,7 +5,7 @@ import { Stat } from "@/app/_types/types";
 import DataHeader from "./DataHeader";
 import StatLineItem from "./StatLineItem";
 import styles from "./statTable.module.scss";
-import { HomePageContext } from "@/app/page";
+import { HomePageContext } from "@/app/_context/HomePageContext";
 
 const StatTable = () => {
     const { stats, searchFilter, statFilters, positionFilters, marketSuspendedFilter } = useContext(HomePageContext);

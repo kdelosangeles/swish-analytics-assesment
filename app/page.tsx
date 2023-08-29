@@ -1,38 +1,11 @@
 "use client";
 
-import { createContext, useEffect, useState } from "react";
-import { NextPage } from "next";
+import { useEffect, useState } from "react";
 import Navigation from "./_components/Navigation";
 import Search from "./_components/Search";
 import StatTable from "./_components/StatTable";
 import styles from "./page.module.scss";
-import { Stat } from "./_types/types";
-
-interface HomePageContextProps {
-    stats: Stat[];
-    setStats: any;
-    searchFilter: string;
-    setSearchFilter: (search: string) => void;
-    statFilters: string[];
-    setStatFilters: (stats: string[]) => void;
-    positionFilters: string[];
-    setPositionFilters: (positions: string[]) => void;
-    marketSuspendedFilter: number[];
-    setMarketSuspendedFilter: any;
-}
-
-export const HomePageContext = createContext<HomePageContextProps>({
-    stats: [],
-    setStats: () => {},
-    searchFilter: "",
-    setSearchFilter: () => {},
-    statFilters: [],
-    setStatFilters: () => {},
-    positionFilters: [],
-    setPositionFilters: () => {},
-    marketSuspendedFilter: [],
-    setMarketSuspendedFilter: () => {},
-});
+import { HomePageContext } from "./_context/HomePageContext";
 
 export default function Home() {
     const [stats, setStats] = useState([]);
